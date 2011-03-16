@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace MazeGenerator.Renderers
 {
-    public partial class uiDefaultRenderer : Form, RenderMaze
+    public partial class uiDefaultRenderer : Form, IRenderableMaze
     {
         public uiDefaultRenderer()
         {

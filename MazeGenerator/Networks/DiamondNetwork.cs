@@ -6,10 +6,9 @@ using System.Text;
 
 namespace MazeGenerator
 {
-
     /// <summary>
     /// </summary>
-    class DiamondNetwork : GridNetwork, GenerateNetwork
+    class DiamondNetwork : GridNetwork, INetwork
     {
         //protected Random _random = new Random();
         private PointF[,] d = new PointF[6, 4];

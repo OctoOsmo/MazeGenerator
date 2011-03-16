@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\INetwork.cs" />
+    <Compile Include="Core\Node.cs" />
     <Compile Include="ComboPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Core\NodeLink.cs" />
     <Compile Include="Maze Algorithms\BinaryWeightedGrowingTree.cs" />
     <Compile Include="Maze Algorithms\MazeAlgorithm.cs" />
     <Compile Include="Networks\DiamondNetwork.cs" />
@@ -56,7 +59,7 @@
     <Compile Include="Maze Algorithms\GrowingTreeMaze.cs" />
     <Compile Include="Networks\ImageBasedGridNetwork.cs" />
     <Compile Include="Maze.cs" />
-    <Compile Include="Networks\Network.cs" />
+    <Compile Include="Core\Network.cs" />
     <Compile Include="Networks\ShapeNetwork.cs" />
     <Compile Include="Networks\TriangleNetwork.cs" />
     <Compile Include="Networks\uiGridNetwork.cs">
@@ -77,7 +80,7 @@
     <Compile Include="Renderers\DefaultRendererForm.Designer.cs">
       <DependentUpon>DefaultRendererForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Renderers\MazeRenderer.cs" />
+    <Compile Include="Core\IRenderableMaze.cs" />
     <Compile Include="Renderers\SaveToFile.cs" />
     <Compile Include="Renderers\uiDefaultRenderer.cs">
       <SubType>Form</SubType>
@@ -93,7 +96,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Networks\Vector2D.cs" />
+    <Compile Include="Core\Vector2D.cs" />
     <EmbeddedResource Include="ComboPanel.resx">
       <DependentUpon>ComboPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,7 +123,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
