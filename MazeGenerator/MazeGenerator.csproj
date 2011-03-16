@@ -51,12 +51,14 @@
     </Compile>
     <Compile Include="Maze Algorithms\BinaryWeightedGrowingTree.cs" />
     <Compile Include="Maze Algorithms\MazeAlgorithm.cs" />
+    <Compile Include="Networks\DiamondNetwork.cs" />
     <Compile Include="Networks\GridNetwork.cs" />
     <Compile Include="Maze Algorithms\GrowingTreeMaze.cs" />
     <Compile Include="Networks\ImageBasedGridNetwork.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Networks\Network.cs" />
     <Compile Include="Networks\ShapeNetwork.cs" />
+    <Compile Include="Networks\TriangleNetwork.cs" />
     <Compile Include="Networks\uiGridNetwork.cs">
       <SubType>Form</SubType>
     </Compile>
