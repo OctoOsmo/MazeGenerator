@@ -7,6 +7,7 @@ using System.Text;
 namespace MazeGenerator
 {
     /// <summary>
+    /// A network of tesselating diamonds.
     /// </summary>
     class DiamondNetwork : GridNetwork, INetwork
     {
