@@ -11,11 +11,10 @@ namespace MazeGenerator
     /// </summary>
     public class Network
     {
-        public List<Node> nodeList; // All nodes in the network
+        public List<Node> nodeList = new List<Node>(); // All nodes in the network
 
         public Network()
         {
-            nodeList = new List<Node>();
         }
     }
 }
