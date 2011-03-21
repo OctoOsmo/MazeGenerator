@@ -14,7 +14,7 @@ namespace MazeGenerator
 
             foreach (Node node in nodeList)
             {
-                foreach (NodeLink link in node.linkList)
+                foreach (NodeLink link in node.LinkList)
                 {
                     if (link != null)
                     {
@@ -37,7 +37,7 @@ namespace MazeGenerator
             // Subdivides matching edges accordingly if the intersection is less than the entire length of one of the edges.
             // Note: Subdivision code is fairly basic at the moment. Some edge cases are not covered.
 
-            if (n.linkList[index] != null)
+            if (n.LinkList[index] != null)
             {
                 return;
             }
@@ -67,8 +67,8 @@ namespace MazeGenerator
                             if (edge2.Length() > edge.Length())
                             {
                                 n2.AddPoint(index2 + 1, edge.b);
-                                n2.linkList[index2 + 1] = n2.linkList[index2];
-                                n2.linkList[index2] = null;
+                                n2.LinkList[index2 + 1] = n2.LinkList[index2];
+                                n2.LinkList[index2] = null;
                                 ConnectEdge(n2, ref index2, nl);
                             }
 
@@ -117,7 +117,7 @@ namespace MazeGenerator
         public void AddPoint(int index, PointF p)
         {
             points.Insert(index, p);
-            linkList.Insert(index, null);
+            LinkList.Insert(index, null);
         }
 
         public int FindPointIndex(PointF p)
@@ -135,9 +135,9 @@ namespace MazeGenerator
         {
             NodeLink result;
 
-            if (node1.linkList[index1] != null)
+            if (node1.LinkList[index1] != null)
             {
-                result = node1.linkList[index1];
+                result = node1.LinkList[index1];
             }
             else
             {
@@ -154,8 +154,8 @@ namespace MazeGenerator
                 System.Diagnostics.Trace.WriteLine(" : New Link", s);
                 */
 
-                node1.linkList[index1] = newLink;
-                node2.linkList[index2] = newLink;
+                node1.LinkList[index1] = newLink;
+                node2.LinkList[index2] = newLink;
 
                 result = newLink;
             }
@@ -192,7 +192,7 @@ namespace MazeGenerator
 
             foreach (PointF p in points)
             {
-                linkList.Add(null);
+                LinkList.Add(null);
             }
         }
     }

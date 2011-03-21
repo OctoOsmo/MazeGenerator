@@ -70,7 +70,7 @@ namespace MazeGenerator
             System.Diagnostics.Trace.WriteLine("\n\n");
         }
 
-        public Network GenerateNetwork()
+        public Network INetwork()
         {
             DiamondNetwork network = new DiamondNetwork();
             network.Initialize();

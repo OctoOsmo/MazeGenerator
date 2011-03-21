@@ -16,7 +16,7 @@ namespace MazeGenerator.Renderers
             InitializeComponent();
         }
 
-        public void RenderMaze(Network network)
+        public void IRenderableMaze(Network network)
         {
             DefaultRendererForm form = new DefaultRendererForm(network, (int)corridorWidth.Value);
             form.ShowDialog();

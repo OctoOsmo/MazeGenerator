@@ -9,14 +9,14 @@ using System.Windows.Forms;
 
 namespace MazeGenerator.Networks
 {
-    public partial class uiImageBasedGridNetwork : Form, GenerateNetwork
+    public partial class uiImageBasedGridNetwork : Form, INetwork
     {
         public uiImageBasedGridNetwork()
         {
             InitializeComponent();
         }
 
-        public Network GenerateNetwork()
+        public Network INetwork()
         {
             ImageBasedGridNetwork network = new ImageBasedGridNetwork();
             network.Initialize(filename.Text, (int)subdivisions.Value);

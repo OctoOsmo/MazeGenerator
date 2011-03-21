@@ -35,8 +35,8 @@ namespace MazeGenerator
 
                     bool unvisitedNeighbourFound = false;
 
-                    List<NodeLink> srcList = new List<NodeLink>(nodeRef.linkList);
-                    List<NodeLink> randList = new List<NodeLink>(nodeRef.linkList.Count);
+                    List<NodeLink> srcList = new List<NodeLink>(nodeRef.LinkList);
+                    List<NodeLink> randList = new List<NodeLink>(nodeRef.LinkList.Count);
                     while (srcList.Count > 0)
                     {
                         int index = _random.Next(0, srcList.Count);

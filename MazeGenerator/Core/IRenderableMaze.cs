@@ -7,6 +7,6 @@ namespace MazeGenerator
 {
     interface IRenderableMaze
     {
-        void RenderMaze(Network network);
+        void IRenderableMaze(Network network);
     }
 }

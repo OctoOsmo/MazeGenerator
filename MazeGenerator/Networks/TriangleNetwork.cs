@@ -9,7 +9,7 @@ namespace MazeGenerator
 
     /// <summary>
     /// </summary>
-    class TriangleNetwork : GridNetwork, GenerateNetwork
+    class TriangleNetwork : GridNetwork, INetwork
     {
         protected Random _random = new Random();
 
@@ -36,7 +36,7 @@ namespace MazeGenerator
 
             foreach (Node node in nodeList)
             {
-                node.linkList[0].weight = 0.0f;
+                node.LinkList[0].weight = 0.0f;
             }
 
 
@@ -46,7 +46,7 @@ namespace MazeGenerator
             System.Diagnostics.Trace.WriteLine("\n\n");
         }
 
-        public Network GenerateNetwork()
+        public Network INetwork()
         {
             TriangleNetwork network = new TriangleNetwork();
             network.Initialize();
