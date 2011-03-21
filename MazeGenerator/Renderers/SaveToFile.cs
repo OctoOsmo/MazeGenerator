@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace MazeGenerator
 {
-    /*class SaveToFileRenderer : RenderMaze
+    /*class SaveToFileRenderer : IRenderableMaze
     {
         private System.Windows.Forms.SaveFileDialog saveDialog = new System.Windows.Forms.SaveFileDialog();
 

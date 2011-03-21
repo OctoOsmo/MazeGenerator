@@ -25,7 +25,7 @@ namespace MazeGenerator
                 return;
             }
 
-            foreach (NodeLink link in n.linkList)
+            foreach (NodeLink link in n.LinkList)
             {
                 if (link != null && !link.visited)
                 {

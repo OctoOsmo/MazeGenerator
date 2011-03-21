@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MazeGenerator
 {
-    class NodeLink
+    public class NodeLink
     {
         static private int count = 0;   // An internal counter of how many instances of NodeLink exist.
 

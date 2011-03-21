@@ -71,15 +71,15 @@ namespace MazeGenerator
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            if (networkPanel.SelectedItem is GenerateNetwork
+            if (networkPanel.SelectedItem is INetwork
                 && mazeAlgorithmPanel.SelectedItem is MazeAlgorithm
-                && rendererPanel.SelectedItem is RenderMaze)
+                && rendererPanel.SelectedItem is IRenderableMaze)
             {
-                Network n = ((GenerateNetwork)networkPanel.SelectedItem).GenerateNetwork();                
+                Network n = ((INetwork)networkPanel.SelectedItem).INetwork();                
                 
                 ((MazeAlgorithm)mazeAlgorithmPanel.SelectedItem).Generate(n);
 
-                ((RenderMaze)rendererPanel.SelectedItem).RenderMaze(n);
+                ((IRenderableMaze)rendererPanel.SelectedItem).IRenderableMaze(n);
             }
         }
 

@@ -7,6 +7,6 @@ namespace MazeGenerator
 {
     interface INetwork
     {
-        Network GenerateNetwork();
+        Network INetwork();
     }
 }

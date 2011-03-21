@@ -32,7 +32,7 @@ namespace MazeGenerator.Renderers
                 ShapeNode s = (ShapeNode)network.nodeList[i];
                 for (int i2 = 0; i2 < s.points.Count; i2++)
                 {
-                    if (s.linkList[i2] == null || s.linkList[i2].visited == false)
+                    if (s.LinkList[i2] == null || s.LinkList[i2].visited == false)
                     {
                         PointF p1 = s.points[i2];
                         PointF p2 = s.points[(i2 + 1) % s.points.Count];
