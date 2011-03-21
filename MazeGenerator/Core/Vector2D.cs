@@ -9,6 +9,7 @@ namespace MazeGenerator
     /// <summary>
     /// A crappy & uber simplified vector class used by ShapeNode. 
     /// Written because I was unable to find an off the shelf class.
+    /// 
     /// </summary>
     class Vector2D
     {
