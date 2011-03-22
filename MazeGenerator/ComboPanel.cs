@@ -111,6 +111,11 @@ namespace MazeGenerator
             return false;
         }
 
+        public void SelectItem(int index)
+        {
+            comboBox.SelectedIndex = index;
+        }
+
         private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox comboBox = (ComboBox)sender;

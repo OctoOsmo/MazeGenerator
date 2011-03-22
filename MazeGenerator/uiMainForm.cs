@@ -31,6 +31,9 @@ namespace MazeGenerator
             mazeAlgorithmPanel.AddComboItem("Binary Weighted Growing Tree", new BinaryWeightedGrowingTree());
 
             rendererPanel.AddComboItem("Default", new uiDefaultRenderer());
+            rendererPanel.AddComboItem("Curves", new uiCurveRenderer());
+
+            rendererPanel.SelectItem(1);
 
             bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);

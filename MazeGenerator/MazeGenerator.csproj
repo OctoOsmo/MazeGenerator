@@ -74,6 +74,12 @@
     <Compile Include="Networks\uiImageBasedGridNetwork.Designer.cs">
       <DependentUpon>uiImageBasedGridNetwork.cs</DependentUpon>
     </Compile>
+    <Compile Include="Renderers\CurveRendererForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renderers\CurveRendererForm.Designer.cs">
+      <DependentUpon>CurveRendererForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Renderers\DefaultRendererForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,12 @@
     </Compile>
     <Compile Include="Core\IRenderableMaze.cs" />
     <Compile Include="Renderers\SaveToFile.cs" />
+    <Compile Include="Renderers\uiCurveRenderer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Renderers\uiCurveRenderer.Designer.cs">
+      <DependentUpon>uiCurveRenderer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Renderers\uiDefaultRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,8 +118,14 @@
     <EmbeddedResource Include="Networks\uiImageBasedGridNetwork.resx">
       <DependentUpon>uiImageBasedGridNetwork.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Renderers\CurveRendererForm.resx">
+      <DependentUpon>CurveRendererForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Renderers\DefaultRendererForm.resx">
       <DependentUpon>DefaultRendererForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Renderers\uiCurveRenderer.resx">
+      <DependentUpon>uiCurveRenderer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Renderers\uiDefaultRenderer.resx">
       <DependentUpon>uiDefaultRenderer.cs</DependentUpon>
@@ -125,7 +143,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

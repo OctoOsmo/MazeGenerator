@@ -37,7 +37,7 @@ namespace MazeGenerator
             return (v1.a != v2.a) || (v1.b != v2.b);
         }
 
-        /*public void Multiply(float scale)
+        public void Scale(float scale)
         {
             PointF p = new PointF(b.X - a.X, b.Y - a.Y);
             p.X *= scale;
@@ -46,7 +46,7 @@ namespace MazeGenerator
             b = a;
             b.X += p.X;
             b.Y += p.Y;
-        }*/
+        }
 
         public double Length()
         {

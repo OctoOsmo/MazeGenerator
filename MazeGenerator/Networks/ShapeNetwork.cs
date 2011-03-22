@@ -107,11 +107,55 @@ namespace MazeGenerator
             return new Vector2D(p1, p2);
         }
 
+        public PointF GetEdgeCentre(int index)
+        {
+            Vector2D v = GetEdge(index);
+            PointF point = new PointF((v.a.X + v.b.X) * 0.5f, (v.a.Y + v.b.Y) * 0.5f);
+            return point;
+        }
+
         public Vector2D GetAntiClockwiseEdge(int index)
         {            
             PointF p1 = points[index];
             PointF p2 = points[(index + 1) % points.Count];
             return new Vector2D(p2, p1);
+        }
+
+        public PointF GetCentre()
+        {
+            PointF result;
+
+            if (points.Count == 3)
+            {
+                result = new PointF();
+                result = points[0];
+
+                result.X += points[1].X;
+                result.Y += points[1].Y;
+
+                result.X += points[2].X;
+                result.Y += points[2].Y;
+
+                result.X /= 3;
+                result.Y /= 3;
+            }
+            else
+            {
+                PointF ptMin = points[0];
+                PointF ptMax = points[0];
+
+                foreach (PointF point in points)
+                {
+                    ptMin.X = Math.Min(ptMin.X, point.X);
+                    ptMin.Y = Math.Min(ptMin.Y, point.Y);
+                    ptMax.X = Math.Max(ptMax.X, point.X);
+                    ptMax.Y = Math.Max(ptMax.Y, point.Y);
+                }
+
+                result = new PointF((ptMin.X + ptMax.X) * 0.5f, (ptMin.Y + ptMax.Y) * 0.5f);
+            }
+
+            return result;
         }
 
         public void AddPoint(int index, PointF p)
