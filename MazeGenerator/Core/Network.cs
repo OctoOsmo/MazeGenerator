@@ -11,7 +11,8 @@ namespace MazeGenerator
     /// </summary>
     public class Network
     {
-        public List<Node> nodeList = new List<Node>(); // All nodes in the network
+        //public List<Node> nodeDict = new List<Node>(); // All nodes in the _network
+        public Dictionary<Node, List<NodeLink>> nodeDict = new Dictionary<Node, List<NodeLink>>();
 
         public Network()
         {

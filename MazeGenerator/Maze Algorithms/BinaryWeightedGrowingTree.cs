@@ -53,7 +53,7 @@ namespace MazeGenerator
 
             try
             {
-                Node n = network.nodeList.First();
+                Node n = network.nodeDict.First().Key;
                 VisitNode(n);
 
                 while (weightedLinks.Count > 0 || unweightedLinks.Count > 0)

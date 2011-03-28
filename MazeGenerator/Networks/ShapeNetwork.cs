@@ -12,9 +12,9 @@ namespace MazeGenerator
         {
             // Currently only supports binary weightings.
 
-            foreach (Node node in nodeList)
+            foreach (KeyValuePair<Node, List<NodeLink>> kvp in nodeDict)
             {
-                foreach (NodeLink link in node.LinkList)
+                foreach (NodeLink link in kvp.Value)
                 {
                     if (link != null)
                     {

@@ -12,7 +12,7 @@ namespace MazeGenerator
     {
         private System.Windows.Forms.SaveFileDialog saveDialog = new System.Windows.Forms.SaveFileDialog();
 
-        public void Render(Network network)
+        public void Render(Network _network)
         {
             saveDialog.Title = "Save Maze";
             saveDialog.Filter = "Bitmap Images|*.bmp";

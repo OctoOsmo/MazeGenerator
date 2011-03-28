@@ -7,7 +7,7 @@ using System.Text;
 namespace MazeGenerator
 {
     /// <summary>
-    /// A network of tesselating diamonds.
+    /// A _network of tesselating diamonds.
     /// </summary>
     class DiamondNetwork : GridNetwork, INetwork
     {
@@ -65,7 +65,7 @@ namespace MazeGenerator
             ConnectGrid();
 
             System.Diagnostics.Trace.WriteLine("\n\n");
-            System.Diagnostics.Trace.WriteLine("Nodes = " + nodeList.Count);
+            System.Diagnostics.Trace.WriteLine("Nodes = " + nodeDict.Count);
             System.Diagnostics.Trace.WriteLine("NodeLinks = " + NodeLink.Count);
             System.Diagnostics.Trace.WriteLine("\n\n");
         }
@@ -79,7 +79,7 @@ namespace MazeGenerator
 
         protected void AddDiamondGridCell(PointF offset, float size, ref List<Node> cellNodeList)
         {
-            int oldNodeListCount = nodeList.Count;
+            int oldNodeListCount = nodeDict.Count;
 
             SizeF cellSize = new SizeF(size, size);
             PointF point = new PointF();
@@ -100,12 +100,12 @@ namespace MazeGenerator
                     node.AddPoint(ip, point);
                 }
 
-                nodeList.Add(node);
+                nodeDict.Add(node, new List<NodeLink>());
             }
             
-            for (int index = oldNodeListCount; index < nodeList.Count; index++)
+            for (int index = oldNodeListCount; index < nodeDict.Count; index++)
             {
-                cellNodeList.Add(nodeList[index]);
+                cellNodeList.Add(nodeDict.ElementAt<KeyValuePair<Node, List<NodeLink>>>(index).Key);
             }
 
         }

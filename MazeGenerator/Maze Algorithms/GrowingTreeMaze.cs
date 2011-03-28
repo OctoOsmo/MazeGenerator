@@ -24,7 +24,7 @@ namespace MazeGenerator
 
             try
             {
-                nodeReferences.Add(network.nodeList.First());
+                nodeReferences.Add(network.nodeDict.First().Key);
 
                 while (nodeReferences.Count != 0)
                 {

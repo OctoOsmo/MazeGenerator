@@ -38,6 +38,9 @@ namespace MazeGenerator.Renderers
         protected void DrawMaze(Graphics g)
         {
             g.Clear(colBackground);
+            g.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
 
             Pen p;
 
@@ -56,8 +59,10 @@ namespace MazeGenerator.Renderers
             PointF[] renderPoints = new PointF[4];
             Vector2D v;
 
-            foreach(ShapeNode n in network.nodeList)
+            foreach(KeyValuePair<Node, List<NodeLink>> kvp in network.nodeDict)
             {
+                ShapeNode n = kvp.Key as ShapeNode;
+
                 PointF centre = n.GetCentre();
                 bool bBezierDrawn = false;
 

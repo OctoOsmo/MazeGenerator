@@ -11,12 +11,12 @@ namespace MazeGenerator.Renderers
 {
     public partial class DefaultRendererForm : Form
     {
-        private Network network;
+        private Network _network;
         private int corridorWidth;
 
         public DefaultRendererForm(Network n, int CorridorWidth)
         {
-            network = n;
+            _network = n;
             corridorWidth = CorridorWidth;
             InitializeComponent();
         }
@@ -27,9 +27,14 @@ namespace MazeGenerator.Renderers
 
             Pen p = new Pen(Color.Black, 1f);
 
-            for (int i = 0; i < network.nodeList.Count; i++)
+            for (int i = 0; i < _network.nodeDict.Count; i++)
             {
-                ShapeNode s = (ShapeNode)network.nodeList[i];
+                
+            }
+
+            foreach (KeyValuePair<Node, List<NodeLink>> kvp in _network.nodeDict)
+            {
+                ShapeNode s = (ShapeNode)kvp.Key;
                 for (int i2 = 0; i2 < s.points.Count; i2++)
                 {
                     if (s.LinkList[i2] == null || s.LinkList[i2].visited == false)

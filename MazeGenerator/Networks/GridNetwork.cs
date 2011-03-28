@@ -35,7 +35,7 @@ namespace MazeGenerator
             CalculateWeightsByArea();
             
             System.Diagnostics.Trace.WriteLine("\n\n");
-            System.Diagnostics.Trace.WriteLine("GridMaze : Nodes = " + nodeList.Count);
+            System.Diagnostics.Trace.WriteLine("GridMaze : Nodes = " + nodeDict.Count);
             System.Diagnostics.Trace.WriteLine("GridMaze : NodeLinks = " + NodeLink.Count);
             System.Diagnostics.Trace.WriteLine("\n\n");            
         }
@@ -43,18 +43,18 @@ namespace MazeGenerator
         protected void AddGridCell(PointF offset, int rows, float size, ref List<Node> cellNodeList)
         {
             // As oher AddGridCell method but also returns a list of all the nodes added
-            int oldNodeListCount = nodeList.Count;
+            int oldNodeListCount = nodeDict.Count;
 
             AddGridCell(offset, rows, size);
-            for (int index = oldNodeListCount; index < nodeList.Count; index++)
+            for (int index = oldNodeListCount; index < nodeDict.Count; index++)
             {
-                cellNodeList.Add(nodeList[index]);
+                cellNodeList.Add(nodeDict.ElementAt<KeyValuePair<Node, List<NodeLink>>>(index).Key);
             }            
         }
 
         protected void AddGridCell(PointF offset, int subdivisions, float size)
         {
-            // Adds a grid cell to the network at position 'offset'
+            // Adds a grid cell to the _network at position 'offset'
             // 'subdivisions' denotes how many RectNodes the cell is composed of. (1 = 1, 2 = 2x2, 3 = 3x3, etc)
             // Note size is currently the size of each RectNode added to the cell - it would be better if size reflected the entire dimensions of the new grid cell.
             SizeF cellSize = new SizeF(size, size);
@@ -68,7 +68,7 @@ namespace MazeGenerator
                     point.X = offset.X + (i.X * size);
                     point.Y = offset.Y + (i.Y * size);
                     RectNode node = new RectNode(point, cellSize);
-                    nodeList.Add(node);                    
+                    nodeDict.Add(node, new List<NodeLink>());                    
                 }
             }
         }
