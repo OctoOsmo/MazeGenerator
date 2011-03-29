@@ -42,7 +42,7 @@ namespace MazeGenerator
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("Nodes = " + nodeDict.Count);
-            System.Diagnostics.Trace.WriteLine("NodeLinks = " + NodeLink.Count);
+            System.Diagnostics.Trace.WriteLine("NodeLinks = " + Network.CountNodeLinks(nodeDict));
             System.Diagnostics.Trace.WriteLine("\n\n");
         }
 
@@ -111,7 +111,7 @@ namespace MazeGenerator
 
             for (int index = oldNodeListCount; index < nodeDict.Count; index++)
             {
-                cellNodeList.Add(nodeDict.ElementAt<KeyValuePair<Node, List<NodeLink>>>(index).Key);
+                cellNodeList.Add(nodeDict.ElementAt(index).Key);
             }
 
         }

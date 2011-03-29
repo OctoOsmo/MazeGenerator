@@ -48,7 +48,7 @@ namespace MazeGenerator
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("ImageBasedGridMaze : Nodes = " + nodeDict.Count);
-            System.Diagnostics.Trace.WriteLine("ImageBasedGridMaze : NodeLinks = " + NodeLink.Count);
+            System.Diagnostics.Trace.WriteLine("ImageBasedGridMaze : NodeLinks = " + Network.CountNodeLinks(nodeDict));
             System.Diagnostics.Trace.WriteLine("\n\n");
         }
     }

@@ -7,16 +7,6 @@ namespace MazeGenerator
 {
     public class NodeLink
     {
-        static private int count = 0;   // An internal counter of how many instances of NodeLink exist.
-
-        static public int Count
-        {
-            get
-            {
-                return count;
-            }
-        }
-
         public Node a, b;
         public bool visited;    // Specific to the maze generation algorithm used. Should we abstract this out?
         public float weight;     // Specific to the maze generation algorithm used. Should we abstract this out?
@@ -25,8 +15,6 @@ namespace MazeGenerator
 
         public NodeLink(Node A, Node B)
         {
-            count++;
-
             a = A;
             b = B;
             visited = false;
@@ -35,7 +23,7 @@ namespace MazeGenerator
 
         ~NodeLink()
         {
-            count--;
+
         }
 
         public Node Other(Node n)

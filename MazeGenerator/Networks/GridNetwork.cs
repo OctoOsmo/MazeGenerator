@@ -36,7 +36,7 @@ namespace MazeGenerator
             
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("GridMaze : Nodes = " + nodeDict.Count);
-            System.Diagnostics.Trace.WriteLine("GridMaze : NodeLinks = " + NodeLink.Count);
+            System.Diagnostics.Trace.WriteLine("GridMaze : NodeLinks = " + Network.CountNodeLinks(nodeDict));
             System.Diagnostics.Trace.WriteLine("\n\n");            
         }
 
@@ -48,7 +48,7 @@ namespace MazeGenerator
             AddGridCell(offset, rows, size);
             for (int index = oldNodeListCount; index < nodeDict.Count; index++)
             {
-                cellNodeList.Add(nodeDict.ElementAt<KeyValuePair<Node, List<NodeLink>>>(index).Key);
+                cellNodeList.Add(nodeDict.ElementAt(index).Key);
             }            
         }
 
