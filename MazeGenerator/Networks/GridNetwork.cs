@@ -66,9 +66,9 @@ namespace MazeGenerator
                 for (i.Y = 0; i.Y < subdivisions; i.Y++)
                 {
                     point.X = offset.X + (i.X * size);
-                    point.Y = offset.Y + (i.Y * size);
+                    point.Y = offset.Y + (i.Y * size);                    
                     RectNode node = new RectNode(point, cellSize);
-                    nodeDict.Add(node, new List<NodeLink>());                    
+                    nodeDict.Add(node, node.LinkList);                    
                 }
             }
         }

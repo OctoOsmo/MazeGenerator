@@ -27,18 +27,10 @@ namespace MazeGenerator
                     grid[x, y] = new List<Node>();
                     PointF offset = new PointF(x, y);
                     AddTriangleGridCell(offset, 1, ref grid[x, y]);
-
                 }
             }
 
             ConnectGrid();
-            //CalculateWeightsByArea();
-
-            foreach (KeyValuePair<Node, List<NodeLink>> node in nodeDict)
-            {
-                node.Value[0].weight = 0.0f;
-            }
-
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("Nodes = " + nodeDict.Count);
@@ -74,7 +66,7 @@ namespace MazeGenerator
                 node.AddPoint(1, point);
                 point.X -= size;
                 node.AddPoint(2, point);
-                nodeDict.Add(node, new List<NodeLink>());
+                nodeDict.Add(node, node.LinkList);
 
                 node = new ShapeNode();
                 point.X += size;
@@ -84,7 +76,7 @@ namespace MazeGenerator
                 node.AddPoint(1, point);
                 point.X += size;
                 node.AddPoint(2, point);
-                nodeDict.Add(node, new List<NodeLink>());
+                nodeDict.Add(node, node.LinkList);
             }
             else
             {
@@ -96,7 +88,7 @@ namespace MazeGenerator
                 node.AddPoint(1, point);
                 point.Y -= size;
                 node.AddPoint(2, point);
-                nodeDict.Add(node, new List<NodeLink>());
+                nodeDict.Add(node, node.LinkList);
 
                 node = new ShapeNode();
                 point.Y += size;
@@ -106,7 +98,7 @@ namespace MazeGenerator
                 node.AddPoint(1, point);
                 point.Y += size;
                 node.AddPoint(2, point);
-                nodeDict.Add(node, new List<NodeLink>());
+                nodeDict.Add(node, node.LinkList);
             }
 
             for (int index = oldNodeListCount; index < nodeDict.Count; index++)

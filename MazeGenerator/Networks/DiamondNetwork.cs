@@ -100,7 +100,7 @@ namespace MazeGenerator
                     node.AddPoint(ip, point);
                 }
 
-                nodeDict.Add(node, new List<NodeLink>());
+                nodeDict.Add(node, node.LinkList);
             }
             
             for (int index = oldNodeListCount; index < nodeDict.Count; index++)
