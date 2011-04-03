@@ -46,8 +46,8 @@ namespace MazeGenerator
             d[5, 2] = new PointF(1, 3.5f);
             d[5, 3] = new PointF(0.5f, 3);
 
-            gridSize.Width = 20;
-            gridSize.Height = 10;
+            gridSize.Width = 30;
+            gridSize.Height = 20;
 
             grid = new List<Node>[gridSize.Width, gridSize.Height];
 
@@ -63,6 +63,7 @@ namespace MazeGenerator
             }
 
             ConnectGrid();
+            CalculateBoundingBox();
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("Nodes = " + nodeDict.Count);

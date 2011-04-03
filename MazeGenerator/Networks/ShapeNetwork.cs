@@ -6,8 +6,77 @@ using System.Text;
 
 namespace MazeGenerator
 {
+    struct BoxF
+    {
+        public PointF ptMin;
+        public PointF ptMax;
+
+        public float Width
+        {
+            get
+            {
+                return ptMax.X - ptMin.X;
+            }
+        }
+
+        public float Height
+        {
+            get
+            {
+                return ptMax.Y - ptMin.Y;
+            }
+        }
+
+        public void Translate(PointF pt)
+        {
+            ptMin.X += pt.X;
+            ptMin.Y += pt.Y;
+
+            ptMax.X += pt.X;
+            ptMax.Y += pt.Y;
+        }
+
+        public void Extend(PointF pt)
+        {
+            ptMin.X = Math.Min(ptMin.X, pt.X);
+            ptMin.Y = Math.Min(ptMin.Y, pt.Y);
+
+            ptMax.X = Math.Max(ptMax.X, pt.X);
+            ptMax.Y = Math.Max(ptMax.Y, pt.Y);
+        }
+
+        public void Extend(BoxF box)
+        {
+            Extend(box.ptMin);
+            Extend(box.ptMax);
+        }
+    }
+
     class ShapeNetwork : Network
     {
+        protected BoxF boundingBox;
+
+        public BoxF BoundingBox
+        {
+            get { return boundingBox; }
+        }
+
+        protected void CalculateBoundingBox()
+        {
+            if (nodeDict.Count > 0)
+            {
+                boundingBox = new BoxF();
+                boundingBox = ((ShapeNode)nodeDict.Keys.First()).BoundingBox;
+
+                foreach (Node n in nodeDict.Keys)
+                {
+                    ShapeNode sn = (ShapeNode)n;
+
+                    boundingBox.Extend(sn.BoundingBox);
+                }
+            }
+        }
+
         protected void CalculateWeightsByArea()
         {
             // Currently only supports binary weightings.
@@ -99,6 +168,21 @@ namespace MazeGenerator
     class ShapeNode : Node
     {
         public List<PointF> points = new List<PointF>(); // Ordered clockwise
+
+        public BoxF BoundingBox
+        {
+            get
+            {
+                BoxF bb = new BoxF();
+
+                foreach (PointF pt in points)
+                {
+                    bb.Extend(pt);                    
+                }
+
+                return bb;
+            }
+        }
 
         public Vector2D GetEdge(int index)
         {

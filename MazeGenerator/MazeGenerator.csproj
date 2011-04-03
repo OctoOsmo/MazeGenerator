@@ -74,20 +74,7 @@
     <Compile Include="Networks\uiImageBasedGridNetwork.Designer.cs">
       <DependentUpon>uiImageBasedGridNetwork.cs</DependentUpon>
     </Compile>
-    <Compile Include="Renderers\CurveRendererForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Renderers\CurveRendererForm.Designer.cs">
-      <DependentUpon>CurveRendererForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Renderers\DefaultRendererForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Renderers\DefaultRendererForm.Designer.cs">
-      <DependentUpon>DefaultRendererForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Core\IRenderableMaze.cs" />
-    <Compile Include="Renderers\SaveToFile.cs" />
     <Compile Include="Renderers\uiCurveRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,12 +104,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Networks\uiImageBasedGridNetwork.resx">
       <DependentUpon>uiImageBasedGridNetwork.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Renderers\CurveRendererForm.resx">
-      <DependentUpon>CurveRendererForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Renderers\DefaultRendererForm.resx">
-      <DependentUpon>DefaultRendererForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Renderers\uiCurveRenderer.resx">
       <DependentUpon>uiCurveRenderer.cs</DependentUpon>
@@ -155,6 +136,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Maze Solvers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

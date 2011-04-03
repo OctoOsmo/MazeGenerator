@@ -45,6 +45,7 @@ namespace MazeGenerator
 
             ConnectGrid();
             CalculateWeightsByArea();
+            CalculateBoundingBox();
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("ImageBasedGridMaze : Nodes = " + nodeDict.Count);

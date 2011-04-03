@@ -33,7 +33,10 @@ namespace MazeGenerator
             rendererPanel.AddComboItem("Default", new uiDefaultRenderer());
             rendererPanel.AddComboItem("Curves", new uiCurveRenderer());
 
-            rendererPanel.SelectItem(1);
+            rendererPanel.SelectItem(0);
+            //networkPanel.SelectItem(3);
+
+            renderBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;            
 
             bw = new BackgroundWorker();
             bw.DoWork += new DoWorkEventHandler(bw_DoWork);
@@ -82,7 +85,31 @@ namespace MazeGenerator
                 
                 ((MazeAlgorithm)mazeAlgorithmPanel.SelectedItem).Generate(n);
 
-                ((IRenderableMaze)rendererPanel.SelectedItem).IRenderableMaze(n);
+                ((IRenderableMaze)rendererPanel.SelectedItem).IRenderableMaze(n, renderBox);       
+                
+            }
+        }
+
+        private void renderBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveImageButton_Click(object sender, EventArgs e)
+        {
+            if (renderBox.Image is Bitmap)
+            {
+                saveImageDialog.Title = "Save Maze";
+                saveImageDialog.Filter = "Bitmap Images|*.bmp";
+                saveImageDialog.FilterIndex = 1;
+                saveImageDialog.DefaultExt = "bmp";
+                saveImageDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+                if (saveImageDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    Bitmap bitmap = (Bitmap)renderBox.Image;
+                    bitmap.Save(saveImageDialog.FileName);                    
+                }
             }
         }
 

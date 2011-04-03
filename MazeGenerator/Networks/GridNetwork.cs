@@ -33,6 +33,7 @@ namespace MazeGenerator
 
             ConnectGrid();
             CalculateWeightsByArea();
+            CalculateBoundingBox();
             
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("GridMaze : Nodes = " + nodeDict.Count);
