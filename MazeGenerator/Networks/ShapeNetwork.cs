@@ -299,6 +299,11 @@ namespace MazeGenerator
     {
         public RectangleF rect;
 
+        static public int RightIndex   { get { return 1; } }
+        static public int LeftIndex    { get { return 3; } }
+        static public int TopIndex     { get { return 0; } }
+        static public int BottomIndex  { get { return 2; } }
+
         public float Area
         {
             get

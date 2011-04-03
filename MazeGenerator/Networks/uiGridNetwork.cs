@@ -18,7 +18,7 @@ namespace MazeGenerator.Networks
 
         public Network INetwork()
         {            
-            GridNetwork network = new GridNetwork();
+            SimpleGridNetwork network = new SimpleGridNetwork();
             network.Initialize((int)gridWidth.Value, (int)gridHeight.Value);
             return network;
         }

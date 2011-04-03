@@ -40,6 +40,11 @@
             // 
             this.gridWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridWidth.Location = new System.Drawing.Point(95, 12);
+            this.gridWidth.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.gridWidth.Name = "gridWidth";
             this.gridWidth.Size = new System.Drawing.Size(120, 29);
             this.gridWidth.TabIndex = 0;
@@ -53,6 +58,11 @@
             // 
             this.gridHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridHeight.Location = new System.Drawing.Point(95, 47);
+            this.gridHeight.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.gridHeight.Name = "gridHeight";
             this.gridHeight.Size = new System.Drawing.Size(120, 29);
             this.gridHeight.TabIndex = 1;

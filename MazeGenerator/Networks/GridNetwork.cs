@@ -7,39 +7,67 @@ using System.Text;
 namespace MazeGenerator
 {
     /// <summary>
-    /// A grid of squares
+    /// A grid of unit-sized squares
     /// </summary>
-    class GridNetwork : ShapeNetwork
+    class SimpleGridNetwork : ShapeNetwork
     {
-        protected List<Node>[,] grid;
-        protected Size gridSize;
-
         public virtual void Initialize(int gridWidth, int gridHeight)
         {
-            gridSize.Width = gridWidth;
-            gridSize.Height = gridHeight;
+            // Create grid
+            RectNode[,] basicGrid = new RectNode[gridWidth, gridHeight];
 
-            grid = new List<Node>[gridSize.Width, gridSize.Height];
-
+            // Create square nodes
+            SizeF cellSize = new SizeF(1, 1);
             Point p = new Point();
-            for (p.X = 0; p.X < gridSize.Width; p.X++)
+            for (p.X = 0; p.X < gridWidth; p.X++)
             {
-                for (p.Y = 0; p.Y < gridSize.Height; p.Y++)
+                for (p.Y = 0; p.Y < gridHeight; p.Y++)
                 {
-                    grid[p.X, p.Y] = new List<Node>();
-                    AddGridCell(p, 1, 1, ref grid[p.X, p.Y]);
+                    RectNode node = new RectNode(p, cellSize);
+                    nodeDict.Add(node, node.LinkList);
+                    basicGrid[p.X, p.Y] = node;
                 }
             }
 
-            ConnectGrid();
+            // Connect nodes
+            for (p.X = 1; p.X < gridWidth; p.X++)
+            {
+                for (p.Y = 0; p.Y < gridHeight; p.Y++)
+                {
+                    ShapeNode.ConnectEdges(basicGrid[p.X - 1, p.Y], RectNode.RightIndex, basicGrid[p.X, p.Y], RectNode.LeftIndex);
+                }
+            }
+
+            for (p.X = 0; p.X < gridWidth; p.X++)
+            {
+                for (p.Y = 1; p.Y < gridHeight; p.Y++)
+                {
+                    ShapeNode.ConnectEdges(basicGrid[p.X, p.Y - 1], RectNode.BottomIndex, basicGrid[p.X, p.Y], RectNode.TopIndex);
+                }
+            }
+
             CalculateWeightsByArea();
-            CalculateBoundingBox();
-            
+
+            boundingBox.ptMin.X = 0;
+            boundingBox.ptMin.Y = 0;
+            boundingBox.ptMax.X = gridWidth;
+            boundingBox.ptMax.Y = gridHeight;
+
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("GridMaze : Nodes = " + nodeDict.Count);
             System.Diagnostics.Trace.WriteLine("GridMaze : NodeLinks = " + Network.CountNodeLinks(nodeDict));
-            System.Diagnostics.Trace.WriteLine("\n\n");            
+            System.Diagnostics.Trace.WriteLine("\n\n");
         }
+
+    }
+
+    /// <summary>
+    /// A grid of tesselating shapes
+    /// </summary>
+    class GridNetwork : ShapeNetwork
+    {
+        protected List<Node>[,] grid; // Store the nodes in a grid so we can connect them up more efficiently
+        protected Size gridSize;
 
         protected void AddGridCell(PointF offset, int rows, float size, ref List<Node> cellNodeList)
         {
