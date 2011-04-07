@@ -99,16 +99,21 @@ namespace MazeGenerator
         {
             if (renderBox.Image is Bitmap)
             {
+                List<ImageFormat> formats = new List<ImageFormat>();
+                formats.Add(ImageFormat.Png);
+                formats.Add(ImageFormat.Jpeg);
+                formats.Add(ImageFormat.Bmp);
+
                 saveImageDialog.Title = "Save Maze";
-                saveImageDialog.Filter = "Bitmap Images|*.bmp";
+                saveImageDialog.Filter = "PNG Image|*.png|JPG Image|*.jpg|BMP Image|*.bmp";
                 saveImageDialog.FilterIndex = 1;
-                saveImageDialog.DefaultExt = "bmp";
+                saveImageDialog.DefaultExt = "png";
                 saveImageDialog.InitialDirectory = System.Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
 
                 if (saveImageDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
                     Bitmap bitmap = (Bitmap)renderBox.Image;
-                    bitmap.Save(saveImageDialog.FileName);                    
+                    bitmap.Save(saveImageDialog.FileName, formats[saveImageDialog.FilterIndex - 1]);                    
                 }
             }
         }
