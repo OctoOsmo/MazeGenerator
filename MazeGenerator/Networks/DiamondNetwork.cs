@@ -4,12 +4,12 @@ using System.Linq;
 using System.Drawing;
 using System.Text;
 
-namespace MazeGenerator
+namespace MazeGenerator.Networks
 {
     /// <summary>
     /// A _network of tesselating diamonds.
     /// </summary>
-    class DiamondNetwork : GridNetwork, INetwork
+    class DiamondNetwork : TesselatingNetwork, INetwork
     {
         //protected Random _random = new Random();
         private PointF[,] d = new PointF[6, 4];
@@ -64,6 +64,16 @@ namespace MazeGenerator
 
             ConnectGrid();
             CalculateBoundingBox();
+
+            // Add start and end nodes
+            Node startNode = grid[0, 0][0];
+            startNode.LinkList[0] = new NodeLink(startNode, null);
+            startNode.LinkList[0].visited = true;
+
+            Node endNode = grid[gridSize.Width - 1, gridSize.Height - 1][5];
+            endNode.LinkList[2] = new NodeLink(endNode, null);
+            endNode.LinkList[2].visited = true;
+
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("Nodes = " + nodeDict.Count);

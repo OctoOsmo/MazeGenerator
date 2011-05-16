@@ -17,10 +17,20 @@ namespace MazeGenerator.Networks
         }
 
         public Network INetwork()
-        {            
-            SimpleGridNetwork network = new SimpleGridNetwork();
-            network.Initialize((int)gridWidth.Value, (int)gridHeight.Value);
+        {
+            GridNetwork network = new GridNetwork();
+            network.Initialize((int)gridWidth.Value, (int)gridHeight.Value, (int)weavePercent.Value);
             return network;
+        }
+
+        private void gridWidth_ValueChanged(object sender, EventArgs e)
+        {
+            //Dirty = true;
+        }
+
+        private void gridHeight_ValueChanged(object sender, EventArgs e)
+        {
+            //Dirty = true;
         }
     }
 }

@@ -4,19 +4,18 @@ using System.Linq;
 using System.Drawing;
 using System.Text;
 
-namespace MazeGenerator
+namespace MazeGenerator.Networks
 {
-
     /// <summary>
     /// </summary>
-    class TriangleNetwork : GridNetwork, INetwork
+    class TriangleNetwork : TesselatingNetwork, INetwork
     {
         protected Random _random = new Random();
 
         public void Initialize()
         {
-            gridSize.Width = 100;
-            gridSize.Height = 100;
+            gridSize.Width = 30;
+            gridSize.Height = 30;
 
             grid = new List<Node>[gridSize.Width, gridSize.Height];
 
@@ -32,6 +31,16 @@ namespace MazeGenerator
 
             ConnectGrid();
             CalculateBoundingBox();
+
+            // Add start and end nodes
+            Node startNode = grid[0, 0][0];
+            startNode.LinkList[2] = new NodeLink(startNode, null);
+            startNode.LinkList[2].visited = true;
+
+            Node endNode = grid[gridSize.Width - 1, gridSize.Height - 1][1];
+            endNode.LinkList[2] = new NodeLink(endNode, null);
+            endNode.LinkList[2].visited = true;
+
 
             System.Diagnostics.Trace.WriteLine("\n\n");
             System.Diagnostics.Trace.WriteLine("Nodes = " + nodeDict.Count);

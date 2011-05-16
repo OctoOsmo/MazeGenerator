@@ -32,9 +32,10 @@ namespace MazeGenerator
 
             rendererPanel.AddComboItem("Default", new uiDefaultRenderer());
             rendererPanel.AddComboItem("Curves", new uiCurveRenderer());
+            rendererPanel.AddComboItem("Path", new uiPathRenderer());
 
             rendererPanel.SelectItem(0);
-            //networkPanel.SelectItem(3);
+            //networkPanel.SelectItem(0);
 
             renderBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;            
 

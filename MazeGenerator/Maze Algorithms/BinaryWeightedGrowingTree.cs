@@ -29,7 +29,7 @@ namespace MazeGenerator
             {
                 if (link != null && !link.visited)
                 {
-                    if (!link.Other(n).visited)
+                    if (link.Other(n) != null && !link.Other(n).visited)
                     {
                         if (link.weight == 0)
                         {

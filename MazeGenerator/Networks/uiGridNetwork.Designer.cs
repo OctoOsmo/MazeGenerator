@@ -32,14 +32,17 @@
             this.gridHeight = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.weavePercent = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.gridWidth)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weavePercent)).BeginInit();
             this.SuspendLayout();
             // 
             // gridWidth
             // 
             this.gridWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridWidth.Location = new System.Drawing.Point(95, 12);
+            this.gridWidth.Location = new System.Drawing.Point(107, 12);
             this.gridWidth.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -49,15 +52,16 @@
             this.gridWidth.Size = new System.Drawing.Size(120, 29);
             this.gridWidth.TabIndex = 0;
             this.gridWidth.Value = new decimal(new int[] {
-            100,
+            30,
             0,
             0,
             0});
+            this.gridWidth.ValueChanged += new System.EventHandler(this.gridWidth_ValueChanged);
             // 
             // gridHeight
             // 
             this.gridHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridHeight.Location = new System.Drawing.Point(95, 47);
+            this.gridHeight.Location = new System.Drawing.Point(107, 47);
             this.gridHeight.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -67,10 +71,11 @@
             this.gridHeight.Size = new System.Drawing.Size(120, 29);
             this.gridHeight.TabIndex = 1;
             this.gridHeight.Value = new decimal(new int[] {
-            100,
+            30,
             0,
             0,
             0});
+            this.gridHeight.ValueChanged += new System.EventHandler(this.gridHeight_ValueChanged);
             // 
             // label1
             // 
@@ -92,6 +97,29 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Height";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 82);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 24);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Weave %";
+            // 
+            // weavePercent
+            // 
+            this.weavePercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weavePercent.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.weavePercent.Location = new System.Drawing.Point(107, 82);
+            this.weavePercent.Name = "weavePercent";
+            this.weavePercent.Size = new System.Drawing.Size(120, 29);
+            this.weavePercent.TabIndex = 5;
+            // 
             // uiGridNetwork
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -99,6 +127,8 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(284, 262);
             this.ControlBox = false;
+            this.Controls.Add(this.weavePercent);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.gridHeight);
@@ -108,6 +138,7 @@
             this.Text = "uiGridNetwork";
             ((System.ComponentModel.ISupportInitialize)(this.gridWidth)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.weavePercent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,9 +146,11 @@
 
         #endregion
 
-        private System.Windows.Forms.NumericUpDown gridWidth;
-        private System.Windows.Forms.NumericUpDown gridHeight;
+        public System.Windows.Forms.NumericUpDown gridWidth;
+        public System.Windows.Forms.NumericUpDown gridHeight;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.NumericUpDown weavePercent;
     }
 }

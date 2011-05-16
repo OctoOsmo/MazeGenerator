@@ -46,7 +46,7 @@ namespace MazeGenerator
 
                     foreach (NodeLink l in randList)
                     {
-                        if(l != null && l.Other(nodeRef).visited == false)
+                        if(l != null && l.Other(nodeRef) != null && l.Other(nodeRef).visited == false)
                         {
                             l.visited = true;
 

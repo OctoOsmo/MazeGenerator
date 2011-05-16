@@ -4,14 +4,14 @@ using System.Linq;
 using System.Drawing;
 using System.Text;
 
-namespace MazeGenerator
+namespace MazeGenerator.Networks
 {
 
     /// <summary>
     /// A grid of squares based on a specified image.
     /// Grid cells representing darker parts of the image are subdivided.
     /// </summary>
-    class ImageBasedGridNetwork : GridNetwork
+    class ImageBasedGridNetwork : TesselatingNetwork
     {
         public void Initialize(string filename, int subdivisions)
         {
