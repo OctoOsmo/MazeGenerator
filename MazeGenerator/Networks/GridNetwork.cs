@@ -30,9 +30,14 @@ namespace MazeGenerator.Networks
     class GridNetwork : ShapeNetwork
     {
         protected Random _random = new Random();
+        float horizontalWeighting;
+        float verticalWeighting;
 
-        public virtual void Initialize(int gridWidth, int gridHeight, int weavePercent)
+        public virtual void Initialize(int gridWidth, int gridHeight, int weavePercent, float weighting)
         {
+            horizontalWeighting = weighting;
+            verticalWeighting = 1.0f - weighting;
+
             // Create grid
             RectNode[,] basicGrid = new RectNode[gridWidth, gridHeight];
 
@@ -54,7 +59,7 @@ namespace MazeGenerator.Networks
             {
                 for (p.Y = 0; p.Y < gridHeight; p.Y++)
                 {
-                    ShapeNode.ConnectEdges(basicGrid[p.X - 1, p.Y], RectNode.RightIndex, basicGrid[p.X, p.Y], RectNode.LeftIndex);
+                    ShapeNode.ConnectEdges(basicGrid[p.X - 1, p.Y], RectNode.RightIndex, basicGrid[p.X, p.Y], RectNode.LeftIndex, horizontalWeighting);
                 }
             }
 
@@ -62,11 +67,9 @@ namespace MazeGenerator.Networks
             {
                 for (p.Y = 1; p.Y < gridHeight; p.Y++)
                 {
-                    ShapeNode.ConnectEdges(basicGrid[p.X, p.Y - 1], RectNode.BottomIndex, basicGrid[p.X, p.Y], RectNode.TopIndex);
+                    ShapeNode.ConnectEdges(basicGrid[p.X, p.Y - 1], RectNode.BottomIndex, basicGrid[p.X, p.Y], RectNode.TopIndex, verticalWeighting);
                 }
             }
-
-            CalculateWeightsByArea();
 
             boundingBox.ptMin.X = 0;
             boundingBox.ptMin.Y = 0;

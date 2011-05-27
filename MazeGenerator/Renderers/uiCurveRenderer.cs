@@ -38,26 +38,23 @@ namespace MazeGenerator.Renderers
             this.network = network;
             colBackground = backgroundPanel.BackColor;
             colCorridor = corridorPanel.BackColor;
-            colWall = wallPanel.BackColor;            
+            colWall = wallPanel.BackColor;
 
-            BoxF bb = ((ShapeNetwork)network).BoundingBox;
+            if (network is ShapeNetwork)
+            {
+                BoxF bb = ((ShapeNetwork)network).BoundingBox;
 
-            bmp = new Bitmap(1 + (/*(int)corridorWidth.Value **/ (int)nodeSize.Value * ((int)(Math.Ceiling(bb.Width)))),
-                              1 + (/*(int)corridorWidth.Value **/ (int)nodeSize.Value * ((int)(Math.Ceiling(bb.Height)))));
+                bmp = new Bitmap(1 + (/*(int)corridorWidth.Value **/ (int)nodeSize.Value * ((int)(Math.Ceiling(bb.Width)))),
+                                  1 + (/*(int)corridorWidth.Value **/ (int)nodeSize.Value * ((int)(Math.Ceiling(bb.Height)))));
 
-            DrawMaze(Graphics.FromImage(bmp));
+                DrawMaze(Graphics.FromImage(bmp));
 
-            renderBox.Image = bmp;
-
-            /*CurveRendererForm form = new CurveRendererForm( network, 
-                                                            (int)corridorWidth.Value, 
-                                                            (int)wallWidth.Value, 
-                                                            (int)nodeSize.Value, 
-                                                            (float)curveTension.Value, 
-                                                            backgroundPanel.BackColor, 
-                                                            corridorPanel.BackColor, 
-                                                            wallPanel.BackColor);
-            form.ShowDialog();*/
+                renderBox.Image = bmp;
+            }
+            else
+            {
+                MessageBox.Show("CurveRenderer does not support \"" + network.GetType().ToString() + "\" network.");
+            }
         }
 
         private void curveTension_ValueChanged(object sender, EventArgs e)

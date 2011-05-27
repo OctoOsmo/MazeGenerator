@@ -19,7 +19,7 @@ namespace MazeGenerator.Networks
         public Network INetwork()
         {
             GridNetwork network = new GridNetwork();
-            network.Initialize((int)gridWidth.Value, (int)gridHeight.Value, (int)weavePercent.Value);
+            network.Initialize((int)gridWidth.Value, (int)gridHeight.Value, (int)weavePercent.Value, (float)horizontalWeighting.Value);
             return network;
         }
 

@@ -33,5 +33,18 @@ namespace MazeGenerator
             else
                 return a;
         }
+
+        public void Replace(Node toReplace, Node replacement)
+        {
+            // Note: method does not update the relevant node link lists
+            if (a == toReplace)
+            {
+                a = replacement;
+            }
+            else if(b == toReplace)
+            {
+                b = replacement;
+            }
+        }
     }
 }

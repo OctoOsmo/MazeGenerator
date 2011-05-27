@@ -259,7 +259,7 @@ namespace MazeGenerator.Networks
                 );
         }
 
-        static public NodeLink ConnectEdges(ShapeNode node1, int index1, ShapeNode node2, int index2)
+        static public NodeLink ConnectEdges(ShapeNode node1, int index1, ShapeNode node2, int index2, float weighting = 0.0f)
         {
             NodeLink result;
 
@@ -270,7 +270,7 @@ namespace MazeGenerator.Networks
             else
             {
                 NodeLink newLink = new NodeLink(node1, node2);
-
+                newLink.weight = weighting;
                 /*
                 string s;
                 s = "(" + ((RectNode)node1).rect.Left + ", " + ((RectNode)node1).rect.Top + ")";

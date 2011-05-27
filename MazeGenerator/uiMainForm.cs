@@ -21,12 +21,14 @@ namespace MazeGenerator
         public uiMainForm()
         {
             InitializeComponent();
-            
+
             networkPanel.AddComboItem("Grid", new uiGridNetwork());
+            networkPanel.AddComboItem("Circular", new uiPolarNetwork());
             networkPanel.AddComboItem("Image-based Grid", new uiImageBasedGridNetwork());
             networkPanel.AddComboItem("Triangles", new TriangleNetwork());
             networkPanel.AddComboItem("Diamonds", new DiamondNetwork());
 
+            mazeAlgorithmPanel.AddComboItem("Weighted Growing Tree", new WeightedGrowingTree());
             mazeAlgorithmPanel.AddComboItem("Growing Tree", new GrowingTree());
             mazeAlgorithmPanel.AddComboItem("Binary Weighted Growing Tree", new BinaryWeightedGrowingTree());
 
@@ -34,7 +36,7 @@ namespace MazeGenerator
             rendererPanel.AddComboItem("Curves", new uiCurveRenderer());
             rendererPanel.AddComboItem("Path", new uiPathRenderer());
 
-            rendererPanel.SelectItem(0);
+            rendererPanel.SelectItem(2);
             //networkPanel.SelectItem(0);
 
             renderBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;            

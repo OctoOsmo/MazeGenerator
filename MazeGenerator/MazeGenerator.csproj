@@ -53,6 +53,7 @@
     </Compile>
     <Compile Include="Core\NodeLink.cs" />
     <Compile Include="Maze Algorithms\BinaryWeightedGrowingTree.cs" />
+    <Compile Include="Maze Algorithms\WeightedGrowingTreeMaze.cs" />
     <Compile Include="Maze Algorithms\MazeAlgorithm.cs" />
     <Compile Include="Networks\DiamondNetwork.cs" />
     <Compile Include="Networks\GridNetwork.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Networks\ImageBasedGridNetwork.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Core\Network.cs" />
+    <Compile Include="Networks\PolarNetwork.cs" />
     <Compile Include="Networks\ShapeNetwork.cs" />
     <Compile Include="Networks\TesselatingNetwork.cs" />
     <Compile Include="Networks\TriangleNetwork.cs" />
@@ -76,6 +78,12 @@
       <DependentUpon>uiImageBasedGridNetwork.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\IRenderableMaze.cs" />
+    <Compile Include="Networks\uiPolarNetwork.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Networks\uiPolarNetwork.Designer.cs">
+      <DependentUpon>uiPolarNetwork.cs</DependentUpon>
+    </Compile>
     <Compile Include="Renderers\uiCurveRenderer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Networks\uiImageBasedGridNetwork.resx">
       <DependentUpon>uiImageBasedGridNetwork.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Networks\uiPolarNetwork.resx">
+      <DependentUpon>uiPolarNetwork.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Renderers\uiCurveRenderer.resx">
       <DependentUpon>uiCurveRenderer.cs</DependentUpon>
